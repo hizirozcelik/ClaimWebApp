@@ -58,7 +58,7 @@
                                 <th class="text-center w-25"><label asp-for="MileageClaims[0].Distance" class="control-label"></label></th>
 
 
-                                <th class="text-center w-2 bg-success"><i class="bi bi-plus-circle text-white" id='idMileageAddRow' onclick='addRowToMileage();'></i></th>
+                                <th class="text-center w-5 bg-success"><i class="bi bi-plus-circle text-white" id='idMileageAddRow' onclick='addRowToMileage();'></i></th>
                                 @*<th class="text-center w-2 bg-danger"><i class="bi bi-x-circle text-white" id='idRemLastRow' onclick='removeRowFromMileage();'></i></th>*@
                             </tr>
 
@@ -125,10 +125,10 @@
                     <table class="table table-sm table-bordered p-0" id="tblOtherExpenseData">
                         <thead class="bg-light">
                             <tr>
-                                <th class="text-center w-75"><label asp-for="OtherExpenseClaims[0].Type" class="control-label"></label></th>
+                                <th class="text-center w-70"><label asp-for="OtherExpenseClaims[0].Type" class="control-label"></label></th>
                                 <th class="text-center w-25"><label asp-for="OtherExpenseClaims[0].Cost" class="control-label"></label></th>
 
-                                <th class="text-center w-2 bg-success"><i class="bi bi-plus-circle text-white" id='idAddRowToOtherExp' onclick='addRowToOtherExp();'></i></th>
+                                <th class="text-center bg-success" style="width:5px;"><i class="bi bi-plus-circle text-white" id='idAddRowToOtherExp' onclick='addRowToOtherExp();'></i></th>
                                 @*<th class="text-center w-2 bg-danger"><i class="bi bi-x-circle text-white" id='idRemLastOtherExpRow' onclick='removeRowFromOtherExp();'></i></th>*@
                             </tr>
 
@@ -183,8 +183,8 @@
                             <tr>
 
                                 <th class="text-center w-40"><label asp-for="ExpenseClaims[0].ExpenseDescription" class="control-label"></label></th>
-                                <th class="text-center w-40"><label asp-for="ExpenseClaims[0].AccountNumber" class="control-label"></label></th>
-                                <th class="text-center w-20"><label asp-for="ExpenseClaims[0].Amount" class="control-label"></label></th>
+                                <th class="text-center w-30"><label asp-for="ExpenseClaims[0].AccountNumber" class="control-label"></label></th>
+                                <th class="text-center w-25"><label asp-for="ExpenseClaims[0].Amount" class="control-label"></label></th>
                                 <th class="text-center bg-success" style="width:5px;"><i class='bi bi-plus-circle text-white' id='idaddRowToExpense' onclick='addRowToExpense();'></i></th>
                                 @*<th class="text-center w-auto bg-danger"><i class='bi bi-x-circle text-white' id='idaddRowToExpense' onclick='addRowToExpense();'></i></th>*@
 
