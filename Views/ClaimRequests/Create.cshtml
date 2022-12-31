@@ -59,7 +59,7 @@
 
 
                                 <th class="text-center w-2 bg-success"><i class="bi bi-plus-circle text-white" id='idMileageAddRow' onclick='addRowToMileage();'></i></th>
-                                <th class="text-center w-2 bg-danger"><i class="bi bi-x-circle text-white" id='idRemLastRow' onclick='removeRowFromMileage();'></i></th>
+                                @*<th class="text-center w-2 bg-danger"><i class="bi bi-x-circle text-white" id='idRemLastRow' onclick='removeRowFromMileage();'></i></th>*@
                             </tr>
 
                         </thead>
@@ -85,14 +85,16 @@
                                     </td>
 
                                     <td>
-                                        <input id="@("idToWhere" + dtrow)" asp-for="MileageClaims[iNumOfRows].Destination" name="MileageClaims[@iNumOfRows].Destination" class="form-control form-control-sm text-right border-secondary" onchange="setRowVal(@dtrow, 'idToWhere');" />
+                                        <input id="@("idToWhere" + dtrow)" asp-for="MileageClaims[iNumOfRows].Destination" name="MileageClaims[@iNumOfRows].Destination" class="form-control form-control-sm text-right border-secondary" onchange="setRowVal(@dtrow, 'Destination');" />
                                     </td>
 
                                     <td>
-                                        <input id="@("idMileage" + dtrow)" asp-for="MileageClaims[iNumOfRows].Distance" name="MileageClaims[@iNumOfRows].Distance" class="form-control form-control-sm text-right border-secondary currency" data-format-auto-parse="true" data-format-max-decimal="2" data-format="Currency" onchange="setRowVal(@dtrow, 'idMileage');" />
+                                        <input id="@("idMileage" + dtrow)" asp-for="MileageClaims[iNumOfRows].Distance" name="MileageClaims[@iNumOfRows].Distance" class="form-control form-control-sm text-right border-secondary currency" data-format-auto-parse="true" data-format-max-decimal="2" data-format="Currency" onchange="setRowVal(@dtrow, 'Distance');" />
                                     </td>
 
-                                    <td colspan="2"><i class='fa fa-times font-weight-bold pr-md-2 text-white' id=@("NumR" + iNumOfRows)></i></td>
+                                    <td class="text-center w-2"><i class="bi bi-trash text-danger" id='idRemLastRow' onclick='removeRowFromMileage();'></i>
+
+                                </td>
 
                                 </tr>
 
@@ -105,7 +107,7 @@
                                 <td class="border-0 text-right"><label class="control-label-sm font-weight-bold" tabindex="-1">Total Distance</label></td>
                                 <td class="border-0"><input class="form-control form-control-sm text-right" asp-for="MileageTotal" id="idTotalMileage" type="text" value="@Model.MileageTotal" data-format-auto-parse="true" data-format-max-decimal="2" data-format="Currency" readonly tabindex="5001"></td>
 
-                                <td colspan="2" class="border-0"><input class="form-control form-control-sm text-right bg-transparent border-0 " readonly tabindex="5002" /></td>
+                                <td class="border-0"><input class="form-control form-control-sm text-right bg-transparent border-0 " readonly tabindex="5002" /></td>
                             </tr>
 
                         </tfoot>
@@ -127,7 +129,7 @@
                                 <th class="text-center w-25"><label asp-for="OtherExpenseClaims[0].Cost" class="control-label"></label></th>
 
                                 <th class="text-center w-2 bg-success"><i class="bi bi-plus-circle text-white" id='idAddRowToOtherExp' onclick='addRowToOtherExp();'></i></th>
-                                <th class="text-center w-2 bg-danger"><i class="bi bi-x-circle text-white" id='idRemLastOtherExpRow' onclick='removeRowFromOtherExp();'></i></th>
+                                @*<th class="text-center w-2 bg-danger"><i class="bi bi-x-circle text-white" id='idRemLastOtherExpRow' onclick='removeRowFromOtherExp();'></i></th>*@
                             </tr>
 
                         </thead>
@@ -150,7 +152,7 @@
                                         <input id="@("idExpenseCost" + dtrow)" asp-for="OtherExpenseClaims[iNumOfRows].Cost" name="OtherExpenseClaims[@iNumOfRows].Cost" class="form-control form-control-sm text-right border-secondary" onchange="setRowVal(@dtrow, 'idExpenseCost');" />
                                     </td>
 
-                                    <td colspan="2"><i class='fa fa-times font-weight-bold pr-md-2 text-white' id=@("NumR" + iNumOfRows)></i></td>
+                                    <td class="text-center w-2"><i class="bi bi-trash text-danger" id='idRemLastOtherExpRow' onclick='removeRowFromOtherExp();'></i></td>
 
                                 </tr>
 
@@ -180,12 +182,11 @@
                         <thead class="bg-light">
                             <tr>
 
-                                <th class="text-center w-auto"><label asp-for="ExpenseClaims[0].ExpenseDescription" class="control-label"></label></th>
-                                <th class="text-center w-auto"><label asp-for="ExpenseClaims[0].AccountNumber" class="control-label"></label></th>
-                                <th class="text-center w-auto"><label asp-for="ExpenseClaims[0].Amount" class="control-label"></label></th>
-
-                                <th class="text-center w-auto bg-success"><i class='bi bi-plus-circle text-white' id='idaddRowToExpense' onclick='addRowToExpense();'></i></th>
-                                <th class="text-center w-auto bg-danger"><i class='bi bi-x-circle text-white' id='idaddRowToExpense' onclick='addRowToExpense();'></i></th>
+                                <th class="text-center w-40"><label asp-for="ExpenseClaims[0].ExpenseDescription" class="control-label"></label></th>
+                                <th class="text-center w-40"><label asp-for="ExpenseClaims[0].AccountNumber" class="control-label"></label></th>
+                                <th class="text-center w-20"><label asp-for="ExpenseClaims[0].Amount" class="control-label"></label></th>
+                                <th class="text-center bg-success" style="width:5px;"><i class='bi bi-plus-circle text-white' id='idaddRowToExpense' onclick='addRowToExpense();'></i></th>
+                                @*<th class="text-center w-auto bg-danger"><i class='bi bi-x-circle text-white' id='idaddRowToExpense' onclick='addRowToExpense();'></i></th>*@
 
                             </tr>
 
@@ -213,7 +214,7 @@
                                         <input id="@("idAmount" + dtrow)" asp-for="ExpenseClaims[iNumOfRows].Amount" name="ExpenseClaims[@iNumOfRows].Amount" class="form-control form-control-sm text-right border-secondary" onchange="setRowVal(@dtrow, 'idAmount');" />
                                     </td>
 
-                                    <td colspan="2"><i class='fa fa-times font-weight-bold pr-md-2 text-white' id=@("NumR" + iNumOfRows)></i></td>
+                                     <td><i class="bi bi-trash text-danger"  id='idaddRowToExpense' onclick='addRowToExpense();'></i></td>
 
                                 </tr>
 

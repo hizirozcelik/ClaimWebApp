@@ -23,9 +23,6 @@ namespace ClaimWebApp.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.ClaimRequests.OrderByDescending(x => x.Id).ToListAsync());
-            //List<ClaimRequest> claims = _db.ClaimRequests.ToList<ClaimRequest>();
-            //var sorted = claims.OrderByDescending(x => x.Id);
-            //return View(sorted);
         }
 
         // GET: ClaimRequests/Details/5
