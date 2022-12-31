@@ -1,0 +1,36 @@
+﻿@model ClaimWebApp.Models.ClaimRequest
+
+<section class="container pt-1">
+    <div class="row pt-1">
+        <input hidden id="id" asp-for="Id" class="form-control form-control-sm" />
+        <input hidden id="id" asp-for="Status" class="form-control form-control-sm" />
+        <div class="col col-sm-4">
+            <label asp-for="Name" class="control-label-sm font-weight-bold"></label><br />
+            <input id="receiverNameBox" asp-for="Name" class="form-control form-control-sm" />
+            <span asp-validation-for='Name' class='text-danger'></span>
+        </div>
+        <div class="col col-sm-4">
+            <label asp-for="LastName" class="control-label-sm font-weight-bold"></label><br />
+            <input type="text" id="receiverEmailBox" asp-for="LastName" class="form-control form-control-sm" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div class="col col-sm-4">
+            <label asp-for="Email" class="control-label-sm font-weight-bold"></label><br />
+            <input type="text" id="receiverDepartmentBox" asp-for="Email" class="form-control form-control-sm" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+
+
+</section>
+<section>
+    <div class="card-body">
+        <section class="container pt-1">
+            <label class="form-check-label">
+                <input type="radio" id="mileage" class="form-check-input" asp-for="ClaimType" value="Mileage" checked>Mileage Claim <br />
+                <input type="radio" id="expense" class="form-check-input" asp-for="ClaimType" value="Expense">Expense Claim
+            </label>
+        </section>
+    </div>
+</section>
+

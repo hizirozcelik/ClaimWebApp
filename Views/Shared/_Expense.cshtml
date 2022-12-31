@@ -1,0 +1,66 @@
+﻿@model ClaimWebApp.Models.ClaimRequest
+
+
+
+<section class="container pt-1">
+    <p>Please enter your Expense claim details below.</p>
+    <div class="table-responsive table-responsive-sm">
+        <table class="table table-sm table-bordered p-0" id="tblExpenseData">
+            <thead class="bg-light">
+                <tr>
+                    
+                    <th class="text-center w-40"><label asp-for="ExpenseClaims[0].ExpenseDescription" class="control-label"></label></th>
+                    <th class="text-center w-30"><label asp-for="ExpenseClaims[0].AccountNumber" class="control-label"></label></th>
+                    <th class="text-center w-25"><label asp-for="ExpenseClaims[0].Amount" class="control-label"></label></th>
+
+                    <th class="text-center"><i class='fa fa-plus font-weight-bold text-primary' id='idaddRowToExpense' onclick='addRowToExpense();'></i></th>
+      
+                </tr>
+
+            </thead>
+
+            <tbody id="BodyExpenseRowEntry">
+                @for (int iNumOfRows = 0; iNumOfRows < Model.ExpenseClaims.Count; iNumOfRows++)
+                {
+                    var dtrow = iNumOfRows.ToString();
+                    <tr id="@("trExpense" + dtrow)">
+                        <td hidden>
+                            <input asp-for="ExpenseClaims[iNumOfRows].Id" name="ExpenseClaims[@iNumOfRows].Id" class="form-control form-control-sm text-right border-secondary" />
+                            <input asp-for="ExpenseClaims[iNumOfRows].ClaimRequestId" name="ExpenseClaims[@iNumOfRows].ClaimRequestId" class="form-control form-control-sm text-right border-secondary" />
+                        </td>
+
+                        <td>
+                            <input id="@("idExpenseDescription" + dtrow)" asp-for="ExpenseClaims[iNumOfRows].ExpenseDescription" name="ExpenseClaims[@iNumOfRows].ExpenseDescription" class="form-control form-control-sm text-right border-secondary" onchange="setRowVal(@dtrow, 'idExpenseDescription');" />
+                        </td>
+
+                        <td>
+                            <input id="@("idEarningCode" + dtrow)" asp-for="ExpenseClaims[iNumOfRows].AccountNumber" name="ExpenseClaims[@iNumOfRows].AccountNumber" class="form-control form-control-sm text-right border-secondary" onchange="setRowVal(@dtrow, 'idEarningCode');" />
+                        </td>
+
+                        <td>
+                            <input id="@("idAmount" + dtrow)" asp-for="ExpenseClaims[iNumOfRows].Amount" name="ExpenseClaims[@iNumOfRows].Amount" class="form-control form-control-sm text-right border-secondary" onchange="setRowVal(@dtrow, 'idAmount');" />
+                        </td>
+
+                        <td colspan="2"><i class='fa fa-times font-weight-bold pr-md-2 text-white' id=@("NumR" + iNumOfRows)></i></td>
+
+                    </tr>
+
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="border-0"><input class="form-control form-control-sm  bg-transparent border-0 " readonly tabindex="-1" /></td>
+                    
+                    <td class="border-0 text-right"><label class="control-label-sm font-weight-bold" tabindex="-1">Total Expenses</label></td>
+                    <td class="border-0"><input class="form-control form-control-sm text-right" asp-for="ExpenseTotal" id="idTotalExpenses" type="text" value="@Model.ExpenseTotal" readonly tabindex="5001"></td>
+
+                    <td  class="border-0"><input class="form-control form-control-sm text-right bg-transparent border-0 " readonly tabindex="5002" /></td>
+                </tr>
+
+            </tfoot>
+        </table>
+    </div>
+</section>
+
+
+
