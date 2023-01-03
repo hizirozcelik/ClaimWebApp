@@ -5,3 +5,5 @@ MS SQL used as a database.
 Claim requests has multiple rows to store. I use a List for every claim table and store them on respective tables on the database.
 Crud operations implemented.
 Dynamicly Add and remove rows functionality implemented with JS/jQuery.
+Application has both backend and frontend validation for inputs.
+
