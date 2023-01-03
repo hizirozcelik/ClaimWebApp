@@ -136,6 +136,7 @@ namespace ClaimWebApp.Controllers
                 {
                     if (!claimRequest.IsOtherExpense)
                     {
+
                         OtherExpenseClaim otherExpense = new OtherExpenseClaim();
                         claimRequest.OtherExpenseClaims[0] = otherExpense;
                     }
