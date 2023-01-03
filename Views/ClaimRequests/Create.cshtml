@@ -18,17 +18,17 @@
                 <input hidden id="id" asp-for="Status" class="form-control form-control-sm" />
                 <div class="col col-sm-4">
                     <label asp-for="Name" class="control-label-sm font-weight-bold"></label><br />
-                    <input id="receiverNameBox" asp-for="Name" class="form-control form-control-sm" />
+                    <input asp-for="Name" class="form-control form-control-sm" />
                     <span asp-validation-for='Name' class='text-danger'></span>
                 </div>
                 <div class="col col-sm-4">
                     <label asp-for="LastName" class="control-label-sm font-weight-bold"></label><br />
-                    <input type="text" id="receiverEmailBox" asp-for="LastName" class="form-control form-control-sm" />
+                    <input type="text" asp-for="LastName" class="form-control form-control-sm" />
                     <span asp-validation-for="LastName" class="text-danger"></span>
                 </div>
                 <div class="col col-sm-4">
                     <label asp-for="Email" class="control-label-sm font-weight-bold"></label><br />
-                    <input type="text" id="receiverDepartmentBox" asp-for="Email" class="form-control form-control-sm" />
+                    <input type="email" asp-for="Email" class="form-control form-control-sm" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
             </div>
@@ -78,20 +78,20 @@
                                     </td>
 
                                     <td>
-                                        <input id="@("idTripDate" + dtrow)" asp-for="MileageClaims[iNumOfRows].TripDate" name="MileageClaims[@iNumOfRows].TripDate" class="form-control form-control-sm border-secondary " />
+                                        <input id="@("idTripDate" + dtrow)" asp-for="MileageClaims[iNumOfRows].TripDate" name="MileageClaims[@iNumOfRows].TripDate" class="form-control form-control-sm border-secondary " required/>
 
                                     </td>
 
                                     <td>
-                                        <input id="@("idFromWhere" + dtrow)" asp-for="MileageClaims[iNumOfRows].FromWhere" name="MileageClaims[@iNumOfRows].FromWhere" class="form-control form-control-sm border-secondary " />
+                                        <input id="@("idFromWhere" + dtrow)" asp-for="MileageClaims[iNumOfRows].FromWhere" name="MileageClaims[@iNumOfRows].FromWhere" class="form-control form-control-sm border-secondary " required />
                                     </td>
 
                                     <td>
-                                        <input id="@("idDestination" + dtrow)" asp-for="MileageClaims[iNumOfRows].Destination" name="MileageClaims[@iNumOfRows].Destination" class="form-control form-control-sm border-secondary" />
+                                        <input id="@("idDestination" + dtrow)" asp-for="MileageClaims[iNumOfRows].Destination" name="MileageClaims[@iNumOfRows].Destination" class="form-control form-control-sm border-secondary" required />
                                     </td>
 
                                     <td>
-                                        <input id="@("idDistance" + dtrow)" asp-for="MileageClaims[iNumOfRows].Distance" name="MileageClaims[@iNumOfRows].Distance" class="form-control form-control-sm text-end border-secondary currency distance" data-format-auto-parse="true" data-format-max-decimal="2" data-format="Currency" onchange="setRowVal(@dtrow, 'idDistance');" />
+                                        <input id="@("idDistance" + dtrow)" asp-for="MileageClaims[iNumOfRows].Distance" name="MileageClaims[@iNumOfRows].Distance" class="form-control form-control-sm text-end border-secondary currency distance" data-format-auto-parse="true" data-format-max-decimal="2" data-format="Currency" onchange="setRowVal(@dtrow, 'idDistance');" required />
                                     </td>
                                     <td colspan="2"></td>
                                 </tr>
@@ -145,11 +145,11 @@
                                     </td>
 
                                     <td>
-                                        <input id="@("idType" + dtrow)" asp-for="OtherExpenseClaims[iNumOfRows].Type" name="OtherExpenseClaims[@iNumOfRows].Type" class="form-control form-control-sm border-secondary" />
+                                        <input id="@("idType" + dtrow)" asp-for="OtherExpenseClaims[iNumOfRows].Type" name="OtherExpenseClaims[@iNumOfRows].Type" class="form-control form-control-sm border-secondary" required />
                                     </td>
 
                                     <td>
-                                        <input id="@("idCost" + dtrow)" asp-for="OtherExpenseClaims[iNumOfRows].Cost" name="OtherExpenseClaims[@iNumOfRows].Cost" class="form-control form-control-sm text-end border-secondary currency cost" data-format-auto-parse="true" data-format-max-decimal="2" data-format="Currency" onchange="setRowVal(@dtrow, 'idCost');" />
+                                        <input id="@("idCost" + dtrow)" asp-for="OtherExpenseClaims[iNumOfRows].Cost" name="OtherExpenseClaims[@iNumOfRows].Cost" class="form-control form-control-sm text-end border-secondary currency cost" data-format-auto-parse="true" data-format-max-decimal="2" data-format="Currency" onchange="setRowVal(@dtrow, 'idCost');" required />
                                     </td>
                                     <td colspan="2"></td>
                                 </tr>
@@ -204,15 +204,15 @@
                                     </td>
 
                                     <td>
-                                        <input id="@("idExpenseDescription" + dtrow)" asp-for="ExpenseClaims[iNumOfRows].ExpenseDescription" name="ExpenseClaims[@iNumOfRows].ExpenseDescription" class="form-control form-control-sm border-secondary" />
+                                        <input id="@("idExpenseDescription" + dtrow)" asp-for="ExpenseClaims[iNumOfRows].ExpenseDescription" name="ExpenseClaims[@iNumOfRows].ExpenseDescription" class="form-control form-control-sm border-secondary" required />
                                     </td>
 
                                     <td>
-                                        <input id="@("idEarningCode" + dtrow)" asp-for="ExpenseClaims[iNumOfRows].AccountNumber" name="ExpenseClaims[@iNumOfRows].AccountNumber" class="form-control form-control-sm border-secondary" />
+                                        <input id="@("idEarningCode" + dtrow)" asp-for="ExpenseClaims[iNumOfRows].AccountNumber" name="ExpenseClaims[@iNumOfRows].AccountNumber" class="form-control form-control-sm border-secondary" required />
                                     </td>
 
                                     <td>
-                                        <input id="@("idAmount" + dtrow)" asp-for="ExpenseClaims[iNumOfRows].Amount" name="ExpenseClaims[@iNumOfRows].Amount" class="form-control form-control-sm text-end border-secondary currency amount" data-format-auto-parse="true" data-format-max-decimal="2" data-format="Currency" onchange="setRowVal(@dtrow, 'idAmount');" />
+                                        <input id="@("idAmount" + dtrow)" asp-for="ExpenseClaims[iNumOfRows].Amount" name="ExpenseClaims[@iNumOfRows].Amount" class="form-control form-control-sm text-end border-secondary currency amount" data-format-auto-parse="true" data-format-max-decimal="2" data-format="Currency" onchange="setRowVal(@dtrow, 'idAmount');" required />
                                     </td>
                                     <td colspan="2"></td>
                                 </tr>
@@ -234,7 +234,7 @@
             </section>
         </div>
 
-
+        &nbsp;
         <div class="form-group">
             <input type="submit" value="Create" class="btn btn-primary" />
         </div>

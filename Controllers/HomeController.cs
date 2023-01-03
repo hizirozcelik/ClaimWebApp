@@ -18,16 +18,8 @@ namespace ClaimWebApp.Controllers
 
         public IActionResult Index()
         {
-            //IEnumerable<ClaimRequest> claims = _db.ClaimRequests;
-            List<ClaimRequest> claims= _db.ClaimRequests.ToList<ClaimRequest>();
-            var sorted = claims.OrderByDescending(x => x.Id);
-            return View(sorted);
-        }        
-
-        public IActionResult Privacy()
-        {
             return View();
-        }
+        }        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

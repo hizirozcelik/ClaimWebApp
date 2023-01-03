@@ -1,4 +1,5 @@
-﻿// Oakville December 2022
+﻿// Oakville Jan 2023
+// Claim request web app v2
 // Author Hizir Ozcelik
 
 var go = {}; // global object for variables
@@ -144,9 +145,9 @@ $('#add-row-expense').click(() => {
     var newRow = "<tr id='trExpense##PlaceHolder##'>";
     newRow = newRow + "<td hidden><input name='ExpenseClaims[##PlaceHolder##].Id'  class='form-control form-control-sm border-secondary' /></td>";
     newRow = newRow + "<td hidden><input name='ExpenseClaims[##PlaceHolder##].ClaimRequestId'  class='form-control form-control-sm border-secondary' /></td>";
-    newRow = newRow + "<td><input id='idExpenseDescription##PlaceHolder##' name='ExpenseClaims[##PlaceHolder##].ExpenseDescription'  class='form-control form-control-sm border-secondary' type='text' data-val='true' data-val-required='The From Where field is required.' value='' /></td >";
-    newRow = newRow + "<td><input id='idEarningCode##PlaceHolder##' name='ExpenseClaims[##PlaceHolder##].EarningCode'  class='form-control form-control-sm border-secondary' type='text' data-val='true' data-val-required='The From Where field is required.' value='' /></td >";
-    newRow = newRow + "<td><input id='idAmount##PlaceHolder##' name = 'ExpenseClaims[##PlaceHolder##].Amount'  class='form-control form-control-sm text-end border-secondary currency amount' onchange=\"setRowVal(##PlaceHolder##, 'idAmount'); \"  data-format-auto-parse='true' data-format-max-decimal='2' data-format='Currency' type='text' data-val='true' data-val-number='The field Distance must be a number.' data-val-required='The Distance field is required.' value='0.00' /></td>";
+    newRow = newRow + "<td><input id='idExpenseDescription##PlaceHolder##' name='ExpenseClaims[##PlaceHolder##].ExpenseDescription'  class='form-control form-control-sm border-secondary' type='text' data-val='true' data-val-required='The From Where field is required.' value='' required/></td >";
+    newRow = newRow + "<td><input id='AccountNumber##PlaceHolder##' name='ExpenseClaims[##PlaceHolder##].AccountNumber'  class='form-control form-control-sm border-secondary' type='text' data-val='true' data-val-required='The From Where field is required.' value='' required /></td >";
+    newRow = newRow + "<td><input id='idAmount##PlaceHolder##' name = 'ExpenseClaims[##PlaceHolder##].Amount'  class='form-control form-control-sm text-end border-secondary currency amount' onchange=\"setRowVal(##PlaceHolder##, 'idAmount'); \"  data-format-auto-parse='true' data-format-max-decimal='2' data-format='Currency' type='text' data-val='true' data-val-number='The field Distance must be a number.' data-val-required='The Distance field is required.' value='0.00' required/></td>";
     newRow = newRow + "<td colspan='2'></td>";
     newRow = newRow + "</tr>";
     //
@@ -212,8 +213,8 @@ $('#add-row-otherExpense').click(() => {
     var newRow = "<tr id='trOtherExp##PlaceHolder##'>";
     newRow = newRow + "<td hidden><input name='OtherExpenseClaims[##PlaceHolder##].Id'  class='form-control form-control-sm border-secondary' /></td>";
     newRow = newRow + "<td hidden><input name='OtherExpenseClaims[##PlaceHolder##].ClaimRequestId'  class='form-control form-control-sm border-secondary' /></td>";    
-    newRow = newRow + "<td><input id='idType##PlaceHolder##' name='OtherExpenseClaims[##PlaceHolder##].Type'  class='form-control form-control-sm border-secondary' type='text' data-val='true' data-val-required='The From Where field is required.' value='' /></td >";
-    newRow = newRow + "<td><input id ='idCost##PlaceHolder##' name = 'OtherExpenseClaims[##PlaceHolder##].Cost'  class='form-control form-control-sm text-end border-secondary currency cost' onchange=\"setRowVal(##PlaceHolder##, 'idCost'); \"  data-format-auto-parse='true' data-format-max-decimal='2' data-format='Currency' type='text' data-val='true' data-val-number='The field Distance must be a number.' data-val-required='The Distance field is required.' value='0.00' /></td>";
+    newRow = newRow + "<td><input id='idType##PlaceHolder##' name='OtherExpenseClaims[##PlaceHolder##].Type'  class='form-control form-control-sm border-secondary' type='text' data-val='true' data-val-required='The From Where field is required.' value='' required/></td >";
+    newRow = newRow + "<td><input id ='idCost##PlaceHolder##' name = 'OtherExpenseClaims[##PlaceHolder##].Cost'  class='form-control form-control-sm text-end border-secondary currency cost' onchange=\"setRowVal(##PlaceHolder##, 'idCost'); \"  data-format-auto-parse='true' data-format-max-decimal='2' data-format='Currency' type='text' data-val='true' data-val-number='The field Distance must be a number.' data-val-required='The Distance field is required.' value='0.00' required/></td>";
     newRow = newRow + "<td colspan='2'></td>";
     newRow = newRow + "</tr>";
     //
@@ -282,10 +283,10 @@ $('#add-row-mileage').click(() => {
     var newRow = "<tr id='trMileage##PlaceHolder##'>";
     newRow = newRow + "<td hidden><input name='MileageClaims[##PlaceHolder##].Id'  class='form-control form-control-sm border-secondary' /></td>";
     newRow = newRow + "<td hidden><input name='MileageClaims[##PlaceHolder##].ClaimRequestId'  class='form-control form-control-sm border-secondary' /></td>";
-    newRow = newRow + "<td><input id='idTripDate##PlaceHolder##' name='MileageClaims[##PlaceHolder##].TripDate'  class='form-control form-control-sm border-secondary' type='date' data-val='true' data-val-required='The Trip Date field is required.' /></td>";
-    newRow = newRow + "<td><input id='idFromWhere##PlaceHolder##' name='MileageClaims[##PlaceHolder##].FromWhere'  class='form-control form-control-sm border-secondary' type='text' data-val='true' data-val-required='The From Where field is required.' value='' /></td >";
-    newRow = newRow + "<td><input id='idDestination##PlaceHolder##' name='MileageClaims[##PlaceHolder##].Destination'  class='form-control form-control-sm border-secondary' type='text' data-val='true' data-val-required='The From Where field is required.' value='' /></td >";
-    newRow = newRow + "<td><input id ='idDistance##PlaceHolder##' name = 'MileageClaims[##PlaceHolder##].Distance'  class='form-control form-control-sm text-end border-secondary currency distance' onchange=\"setRowVal(##PlaceHolder##, 'idDistance'); \"  data-format-auto-parse='true' data-format-max-decimal='2' data-format='Currency' type='text' data-val='true' data-val-number='The field Distance must be a number.' data-val-required='The Distance field is required.' value='0.00' /></td>";
+    newRow = newRow + "<td><input id='idTripDate##PlaceHolder##' name='MileageClaims[##PlaceHolder##].TripDate'  class='form-control form-control-sm border-secondary' type='date' data-val='true' data-val-required='The Trip Date field is required.' required/></td>";
+    newRow = newRow + "<td><input id='idFromWhere##PlaceHolder##' name='MileageClaims[##PlaceHolder##].FromWhere'  class='form-control form-control-sm border-secondary' type='text' data-val='true' data-val-required='The From Where field is required.' value='' required/></td >";
+    newRow = newRow + "<td><input id='idDestination##PlaceHolder##' name='MileageClaims[##PlaceHolder##].Destination'  class='form-control form-control-sm border-secondary' type='text' data-val='true' data-val-required='The From Where field is required.' value='' required/></td >";
+    newRow = newRow + "<td><input id ='idDistance##PlaceHolder##' name = 'MileageClaims[##PlaceHolder##].Distance'  class='form-control form-control-sm text-end border-secondary currency distance' onchange=\"setRowVal(##PlaceHolder##, 'idDistance'); \"  data-format-auto-parse='true' data-format-max-decimal='2' data-format='Currency' type='text' data-val='true' data-val-number='The field Distance must be a number.' data-val-required='The Distance field is required.' value='0.00' required/></td>";
     newRow = newRow + "<td colspan='2'></td>";
     newRow = newRow + "</tr>";
     //
